@@ -1,0 +1,108 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int       @id @default(autoincrement())
+  name          String?
+  descript      String?   @db.LongText
+  sex           Int       @default(1)
+  mail          String?   @unique
+  phone         String?   @unique
+  ava           String?
+  pass          String?
+  role          Int
+  date01        DateTime? @default(now())
+  date02        DateTime?
+  emailVerified Boolean   @default(false)
+  verifyToken   String?   @db.VarChar(255)
+  profile_v     Json?
+
+  // comment              Comment[]
+  postSampleFavourites PostSampleFavourites[]
+}
+
+model PostSample {
+  id          Int       @id @default(autoincrement())
+  img         String?
+  name        String
+  name_en     String?
+  descript    String?   @db.LongText
+  releaseDate DateTime?
+  date01      DateTime? @default(now())
+  date02      DateTime?
+
+  // comment Comment[]
+  country CountryPostSample[]
+  genre GenrePostSample[]
+  postSampleFavourites PostSampleFavourites[]
+}
+
+model PostSampleFavourites {
+  userId       Int
+  postSampleId Int
+  user         User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  postsample   PostSample @relation(fields: [postSampleId], references: [id], onDelete: Cascade)
+
+  @@id([userId, postSampleId])
+}
+
+model Country {
+  id     Int       @id @default(autoincrement())
+  name   String?
+  slug   String?
+  code   String?
+  data01 DateTime? @default(now())
+  date02 DateTime?
+
+  counpostsample CountryPostSample[]
+}
+
+model Genre {
+  id     Int       @id @default(autoincrement())
+  name   String?
+  slug   String?
+  data01 DateTime? @default(now())
+  date02 DateTime?
+
+  genrePostSamples GenrePostSample[]
+}
+
+model CountryPostSample {
+  postSampleId Int
+  countryId    Int
+
+  postsample   PostSample @relation(fields: [postSampleId], references: [id], onDelete: Cascade)
+  country      Country    @relation(fields: [countryId], references: [id], onDelete: Cascade)
+
+  @@id([countryId, postSampleId])
+}
+
+model GenrePostSample {
+  postSampleId Int
+  genreId      Int
+
+  postsample  PostSample @relation(fields: [postSampleId], references: [id], onDelete: Cascade)
+  genre       Genre      @relation(fields: [genreId], references: [id], onDelete: Cascade)
+
+  @@id([genreId, postSampleId])
+}
+
+// model Comment {
+//   id           Int       @id @default(autoincrement())
+//   iduser       Int?
+//   idPostSample Int?
+//   stars        Int
+//   content      String
+//   date01       DateTime? @default(now())
+//   date02       DateTime?
+
+//   user       User?       @relation(fields: [iduser], references: [id])
+//   postSample PostSample? @relation(fields: [idPostSample], references: [id])
+// }

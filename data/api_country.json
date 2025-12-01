@@ -1,0 +1,37 @@
+[
+    { "id": 1,  "type": "anh",       "type_vn": "Anh",        "code": "GB",
+      "url": "https://rophimapi.net/v1/movie/filterV2?q=&countries=GB&genres=&years=&custom_year=&quality=&type=&status=&exclude_status=Upcoming&versions=&rating=&networks=&productions=&sort=release_date&page=" },
+
+    { "id": 2,  "type": "canada",    "type_vn": "Canada",     "code": "CA",
+      "url": "https://rophimapi.net/v1/movie/filterV2?q=&countries=CA&genres=&years=&custom_year=&quality=&type=&status=&exclude_status=Upcoming&versions=&rating=&networks=&productions=&sort=release_date&page=" },
+
+    { "id": 3,  "type": "han-quoc",  "type_vn": "Hàn Quốc",   "code": "KR",
+      "url": "https://rophimapi.net/v1/movie/filterV2?q=&countries=KR&genres=&years=&custom_year=&quality=&type=&status=&exclude_status=Upcoming&versions=&rating=&networks=&productions=&sort=release_date&page=" },
+
+    { "id": 4,  "type": "hong-kong","type_vn": "Hồng Kông",  "code": "HK",
+      "url": "https://rophimapi.net/v1/movie/filterV2?q=&countries=HK&genres=&years=&custom_year=&quality=&type=&status=&exclude_status=Upcoming&versions=&rating=&networks=&productions=&sort=release_date&page=" },
+
+    { "id": 5,  "type": "my",        "type_vn": "Mỹ",         "code": "US",
+      "url": "https://rophimapi.net/v1/movie/filterV2?q=&countries=US&genres=&years=&custom_year=&quality=&type=&status=&exclude_status=Upcoming&versions=&rating=&networks=&productions=&sort=release_date&page=" },
+
+    { "id": 6,  "type": "nhat-ban",  "type_vn": "Nhật Bản",   "code": "JP",
+      "url": "https://rophimapi.net/v1/movie/filterV2?q=&countries=JP&genres=&years=&custom_year=&quality=&type=&status=&exclude_status=Upcoming&versions=&rating=&networks=&productions=&sort=release_date&page=" },
+
+    { "id": 7,  "type": "phap",      "type_vn": "Pháp",       "code": "FR",
+      "url": "https://rophimapi.net/v1/movie/filterV2?q=&countries=FR&genres=&years=&custom_year=&quality=&type=&status=&exclude_status=Upcoming&versions=&rating=&networks=&productions=&sort=release_date&page=" },
+
+    { "id": 8,  "type": "thai-lan",  "type_vn": "Thái Lan",   "code": "TH",
+      "url": "https://rophimapi.net/v1/movie/filterV2?q=&countries=TH&genres=&years=&custom_year=&quality=&type=&status=&exclude_status=Upcoming&versions=&rating=&networks=&productions=&sort=release_date&page=" },
+
+    { "id": 9,  "type": "trung-quoc","type_vn": "Trung Quốc","code": "CN",
+      "url": "https://rophimapi.net/v1/movie/filterV2?q=&countries=CN&genres=&years=&custom_year=&quality=&type=&status=&exclude_status=Upcoming&versions=&rating=&networks=&productions=&sort=release_date&page=" },
+
+    { "id": 10, "type": "uc",        "type_vn": "Úc",         "code": "AU",
+      "url": "https://rophimapi.net/v1/movie/filterV2?q=&countries=AU&genres=&years=&custom_year=&quality=&type=&status=&exclude_status=Upcoming&versions=&rating=&networks=&productions=&sort=release_date&page=" },
+
+    { "id": 11, "type": "dai-loan",  "type_vn": "Đài Loan",   "code": "TW",
+      "url": "https://rophimapi.net/v1/movie/filterV2?q=&countries=TW&genres=&years=&custom_year=&quality=&type=&status=&exclude_status=Upcoming&versions=&rating=&networks=&productions=&sort=release_date&page=" },
+
+    { "id": 12, "type": "duc",       "type_vn": "Đức",        "code": "DE",
+      "url": "https://rophimapi.net/v1/movie/filterV2?q=&countries=DE&genres=&years=&custom_year=&quality=&type=&status=&exclude_status=Upcoming&versions=&rating=&networks=&productions=&sort=release_date&page=" }
+]
