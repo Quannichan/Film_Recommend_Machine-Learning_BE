@@ -5,7 +5,6 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -24,7 +23,6 @@ model User {
   verifyToken   String?   @db.VarChar(255)
   profile_v     Json?
 
-  // comment              Comment[]
   postSampleFavourites PostSampleFavourites[]
 }
 
@@ -38,7 +36,6 @@ model PostSample {
   date01      DateTime? @default(now())
   date02      DateTime?
 
-  // comment Comment[]
   country CountryPostSample[]
   genre GenrePostSample[]
   postSampleFavourites PostSampleFavourites[]
@@ -93,16 +90,3 @@ model GenrePostSample {
 
   @@id([genreId, postSampleId])
 }
-
-// model Comment {
-//   id           Int       @id @default(autoincrement())
-//   iduser       Int?
-//   idPostSample Int?
-//   stars        Int
-//   content      String
-//   date01       DateTime? @default(now())
-//   date02       DateTime?
-
-//   user       User?       @relation(fields: [iduser], references: [id])
-//   postSample PostSample? @relation(fields: [idPostSample], references: [id])
-// }

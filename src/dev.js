@@ -5,9 +5,9 @@ const http = require("http")
 const server = http.createServer(app);
 const port = process.env.PORT
 const cors = require("cors");
+const {prisma} = require("./config/connectSql")
 // const {testConnection} = require("./config/connectSql");
 const vf = require("./tools/VectorFilms");
-
 // testConnection();
 
 // const websocket = require("ws")

@@ -4,9 +4,9 @@ const app = express()
 const http = require("http")
 const server = http.createServer(app)
 const port = process.env.PORT
-const {testConnection} = require("./config/connectSql");
+// const {testConnection} = require("./config/connectSql");
 
-testConnection();
+// testConnection();
 
 app.set('trust proxy', true);
 app.use(express.json({ limit: '300mb' }));

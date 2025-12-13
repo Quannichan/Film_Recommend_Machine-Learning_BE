@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
     "product": "node dist/index.js",
     "test": "nodemon src/index.js",
@@ -15,11 +16,12 @@
   "author": "Tran Minh Quan",
   "license": "ISC",
   "dependencies": {
+    "@prisma/adapter-mariadb": "^7.1.0",
     "argon2": "^0.41.1",
     "base-64": "^1.0.0",
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
-    "dotenv": "^17.0.0",
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "film_recomendation_ai_be": "file:",
     "moment": "^2.30.1",
@@ -31,14 +33,13 @@
     "qs": "^6.14.0"
   },
   "devDependencies": {
-    "@prisma/client": "^7.0.1",
+    "@prisma/client": "^7.1.0",
     "axios": "^1.10.0",
     "body-parser": "^2.2.0",
     "nodemon": "^3.0.2",
-    "prisma": "^6.19.0",
+    "prisma": "^7.1.0",
     "request-ip": "^3.3.0",
     "serverless-http": "^3.2.0",
-    "tsup": "^8.5.0",
-    "typescript": "^5.9.3"
+    "tsup": "^8.5.0"
   }
 }

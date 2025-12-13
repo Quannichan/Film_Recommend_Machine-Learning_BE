@@ -9,3 +9,4 @@
 .env
 /dist
 crawler.py
+/prisma/migrations
