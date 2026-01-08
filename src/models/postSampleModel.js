@@ -195,15 +195,22 @@ class postSampleModel{
             }
         })
 
-        if(user.profile_v.length > 0){
-            const recommend = await vf.recommendMovies(req.u.BASEID, user.profile_v);
-            res.json({
-                "status" : 2000,
-                "data": recommend
-            })
+        if(user.profile_v){
+            if(user.profile_v.length > 0){
+                const recommend = await vf.recommendMovies(req.u.BASEID, user.profile_v);
+                res.json({
+                    "status" : 2000,
+                    "data": recommend
+                })
+            }else{
+                res.json({
+                    "status" : 2001,
+                    "msg": "Bạn hãy thích ít nhất một phim để hệ thống có thể đề xuất!"
+                })
+            }
         }else{
             res.json({
-                "status" : 2000,
+                "status" : 2001,
                 "msg": "Bạn hãy thích ít nhất một phim để hệ thống có thể đề xuất!"
             })
         }
@@ -398,11 +405,6 @@ class postSampleModel{
                 id : req.body.id * 1
             },
             include: {
-                comment: {
-                    include:{
-                        user: true
-                    }
-                },
                 postSampleFavourites: {
                     include: {
                         user: {
@@ -498,7 +500,7 @@ class postSampleModel{
                 }
             });
 
-            await prisma.coutryPostSample.createMany({
+            await prisma.countryPostSample.createMany({
                 data: countryid.map(c => ({
                     postSampleId: newPostSample.id,
                     countryId: c

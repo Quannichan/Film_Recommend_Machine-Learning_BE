@@ -2,7 +2,7 @@
 /node_modules
 # folder for image and video
 /videos
-# /images
+/images
 /private
 /generated
 # /src/dev.js
