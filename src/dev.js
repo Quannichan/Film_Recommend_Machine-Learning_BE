@@ -36,7 +36,8 @@ app.use(cors({
     // origin: [`http://localhost:5173`, `http://localhost:5174`, 'https://2bdb2c879dff.ngrok-free.app'],
     origin: [
     "http://localhost:5173",
-    "http://localhost:5174",
+    // "http://localhost:5174",
+    "https://3522-14-236-18-82.ngrok-free.app"
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', "OPTIONS"],
     allowedHeaders: ['Origin', 'Content-Type', 'Accept', 'Tokenizer', 'Authorization'],

@@ -8,5 +8,6 @@
 # /src/dev.js
 .env
 /dist
-crawler.py
 /prisma/migrations
+.vscode
+venv

@@ -1,17 +1,17 @@
-# CV Buider (CV_Buider_ExpressJs)
+# Film commendation using Machine Learning Algorithm (TF-IDF) (Film_Recommend_Machine-Learning_BE)
 
-> Build CV using AI LLM model and ExpressJs Back-end.
+> Film recommend using TF-IDF machine learning algorithm and ExpressJs Back-end.
 
 ---
 
 ## 🔗 Table of content
-- [Description](#_Description_15)
-- [Timeline](#_Timeline_24)
+- [Description](#_description)
+- [Timeline](#_timeline)
 - [Technique](#_Technique_30)
 - [Structure Tree](#_Structure_Tree_57)
 - [Table Structure](#_Table_Structure_150)
-- [Set-up & run](#_How_to_setup__run_170)
-- [Author](#Author_199)
+- [Set-up & run](##️-how-to-set-up--run)
+- [Author](#Author)
 
 ## 📝 Description
 
@@ -41,109 +41,109 @@
   * NodeJs, Exxpressjs
 
 > Library/Tool:
-  * OpenAI
-  * axios
-  * bcrypt
-  * cors
-  * dotenv
-  * nodemon
-  * parcel
-  * express
-  * multer
-  * prisma
-  * vnpay
+  * natural (machine learning library for NLP)
+  * bcrypt (for encrypt/decrypt data)
+  * cors (for cross-origin resources sharing)
+  * dotenv (read .env variables)
+  * nodemon (for node process hot reload)
+  * parcel (for build src)
+  * express (backend framework)
+  * multer (for write/read/edit file)
+  * prisma (database ORM framework)
 
 ---
 
 ## 🌲 Structure Tree
 
 ```bash
-CVAI_BE_Expressjs
+film_recomendation_AI_BE
 ├── README.md
-├── images
-│   ├── blue_cv.png
-│   ├── business_cv.png
-│   ├── classic_cv.png
-│   ├── dark_cv.png
-│   ├── defaultimg.jpg
-│   ├── light_cv.png
-│   ├── medic_cv.png
-│   ├── polite_cv.png
-│   └── simple_cv.png
+├── data
+│   ├── api_country.json
+│   ├── api_genre.json
+│   ├── crawl
+│   │   ├── crawlFailedImg.py
+│   │   ├── crawlFilmWCountry.py
+│   │   ├── crawlImg.py
+│   │   └── crawler.py
+│   ├── films_news_2.json
+│   └── log.log
+├── generated
+│   └── prisma
+│       └── schema.prisma
 ├── package-lock.json
 ├── package.json
 ├── prisma
 │   └── schema.prisma
-└── src
-    ├── DTO
-    │   ├── auth
-    │   │   ├── LoginDTO.js
-    │   │   └── RegisterDTO.js
-    │   ├── post
-    │   │   ├── PostDelDTO.js
-    │   │   ├── PostGetDTO.js
-    │   │   ├── PostModDTO.js
-    │   │   ├── PostNewDTO.js
-    │   │   └── PostPageDTO.js
-    │   ├── post_sample
-    │   │   ├── PostSampleNewDTO.js
-    │   │   ├── PostSamplePageDTO.js
-    │   │   └── PostSampleUpdateDTO.js
-    │   └── user
-    │       ├── GetLstPageDTO.js
-    │       ├── ModAvaDTO.js
-    │       ├── ModDTO.js
-    │       ├── ModPassDTO.js
-    │       ├── UploadCertiDTO.js
-    │       ├── UploadFaceDTO.js
-    │       └── UploadIdentifyDTO.js
-    ├── config
-    │   └── connectSql.js
-    ├── controller
-    │   ├── infoController.js
-    │   ├── loginController.js
-    │   ├── openAIController.js
-    │   ├── otpController.js
-    │   ├── postController.js
-    │   ├── postSampleController.js
-    │   ├── registerController.js
-    │   └── vnpayController.js
-    ├── dev.js
-    ├── index.js
-    ├── middleware
-    │   └── middelware.js
-    ├── models
-    │   ├── infoModel.js
-    │   ├── locationModel.js
-    │   ├── loginModel.js
-    │   ├── openAIModel.js
-    │   ├── otpModel.js
-    │   ├── postModel.js
-    │   ├── postSampleModel.js
-    │   ├── registerModel.js
-    │   ├── tokenModel.js
-    │   └── vnpayModel.js
-    ├── openAI
-    │   └── openAI.js
-    ├── router
-    │   ├── route.js
-    │   └── routes
-    │       ├── AI.js
-    │       ├── admin.js
-    │       ├── auth.js
-    │       ├── image.js
-    │       ├── info.js
-    │       ├── post.js
-    │       ├── public.js
-    │       └── vnpay.js
-    ├── security
-    │   └── HashTool.js
-    ├── seed
-    │   └── seedSample.js
-    └── tools
-        ├── commonTools.js
-        ├── mapping.js
-        └── randomTool.js
+├── prisma.config.js
+├── src
+│   ├── DTO
+│   │   ├── auth
+│   │   │   ├── LoginDTO.js
+│   │   │   └── RegisterDTO.js
+│   │   ├── country
+│   │   │   ├── CountryModDTO.js
+│   │   │   ├── CountryNewDTO.js
+│   │   │   └── CountryPageDTO.js
+│   │   ├── genre
+│   │   │   ├── GenreModDTO.js
+│   │   │   ├── GenreNewDTO.js
+│   │   │   └── GenrePageDTO.js
+│   │   ├── post_sample
+│   │   │   ├── PostSampleNewDTO.js
+│   │   │   ├── PostSamplePageDTO.js
+│   │   │   └── PostSampleUpdateDTO.js
+│   │   └── user
+│   │       ├── GetLstPageDTO.js
+│   │       ├── ModAvaDTO.js
+│   │       ├── ModDTO.js
+│   │       └── ModPassDTO.js
+│   ├── config
+│   │   └── connectSql.js
+│   ├── controller
+│   │   ├── countryController.js
+│   │   ├── genreController.js
+│   │   ├── infoController.js
+│   │   ├── loginController.js
+│   │   ├── postSampleController.js
+│   │   └── registerController.js
+│   ├── dev.js
+│   ├── index.js
+│   ├── middleware
+│   │   └── middelware.js
+│   ├── models
+│   │   ├── countryModel.js
+│   │   ├── genreModel.js
+│   │   ├── infoModel.js
+│   │   ├── loginModel.js
+│   │   ├── postSampleModel.js
+│   │   ├── registerModel.js
+│   │   └── tokenModel.js
+│   ├── router
+│   │   ├── route.js
+│   │   └── routes
+│   │       ├── admin.js
+│   │       ├── auth.js
+│   │       ├── image.js
+│   │       ├── info.js
+│   │       ├── postSample.js
+│   │       └── public.js
+│   ├── security
+│   │   └── HashTool.js
+│   ├── seed
+│   │   ├── seedCountry.js
+│   │   ├── seedGenre.js
+│   │   └── seedSample.js
+│   ├── tools
+│   │   ├── VectorFilms.js
+│   │   ├── commonTools.js
+│   │   ├── mail.js
+│   │   ├── mapping.js
+│   │   └── randomTool.js
+│   └── utils
+│       └── verifyEmailTemplate.js
+└── tsup.config.js
+
 ```
 
 ---
@@ -157,7 +157,6 @@ CVAI_BE_Expressjs
 | `controller/`        | Controll request and response to model                                              |
 | `model/`             | Logic for object mapping in SQL                                                     |
 | `DTO/`               | Data transfer object for receive what data for service                              |
-| `openAI/`            | Tool for call OpenAI                                                                |
 | `router/`            | Manage all routing endpoint                                                         |
 | `security/`          | Manage all function use for encrypt and decrypt data                                |
 | `seed/`              | For seed data into database                                                         |
@@ -221,4 +220,3 @@ MAIL_VERIFY_URL=http://localhost:3001/api/be/verify/account
 - 13/08/2004
 - <tranminhquan130804@gmail.com>
 - (+84)886523224 (vn)
-"# Film_Recommend_Machine-Learning_BE" 

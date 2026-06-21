@@ -5,6 +5,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -32,6 +33,7 @@ model PostSample {
   name        String
   name_en     String?
   descript    String?   @db.LongText
+  trailer     String?
   releaseDate DateTime?
   date01      DateTime? @default(now())
   date02      DateTime?
