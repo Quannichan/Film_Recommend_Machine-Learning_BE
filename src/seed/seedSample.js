@@ -46188,6 +46188,7 @@ async function main() {
             const [year, month, day] = nsd.release_date.split("-").map(Number);
             nsd.releaseDate = new Date(year, month - 1, day);
         }
+        nsd.film = "_video_1.mp4";
         delete nsd.release_date;
         delete nsd.genres;
         delete nsd.country;

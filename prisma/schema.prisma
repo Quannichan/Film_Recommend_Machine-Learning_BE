@@ -5,7 +5,6 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -23,8 +22,11 @@ model User {
   emailVerified Boolean   @default(false)
   verifyToken   String?   @db.VarChar(255)
   profile_v     Json?
-
+  profile_v_color Json?
+  profile_v_watched Json?
+  
   postSampleFavourites PostSampleFavourites[]
+  postSampleWatched PostSampleWatched[]
 }
 
 model PostSample {
@@ -34,6 +36,7 @@ model PostSample {
   name_en     String?
   descript    String?   @db.LongText
   trailer     String?
+  film        String?
   releaseDate DateTime?
   date01      DateTime? @default(now())
   date02      DateTime?
@@ -41,6 +44,16 @@ model PostSample {
   country CountryPostSample[]
   genre GenrePostSample[]
   postSampleFavourites PostSampleFavourites[]
+  postSampleWatched PostSampleWatched[]
+}
+
+model PostSampleWatched {
+  userId       Int
+  postSampleId Int
+  user         User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  postsample   PostSample @relation(fields: [postSampleId], references: [id], onDelete: Cascade)
+
+  @@id([userId, postSampleId])
 }
 
 model PostSampleFavourites {
@@ -57,7 +70,7 @@ model Country {
   name   String?
   slug   String?
   code   String?
-  data01 DateTime? @default(now())
+  date01 DateTime? @default(now())
   date02 DateTime?
 
   counpostsample CountryPostSample[]
@@ -67,7 +80,7 @@ model Genre {
   id     Int       @id @default(autoincrement())
   name   String?
   slug   String?
-  data01 DateTime? @default(now())
+  date01 DateTime? @default(now())
   date02 DateTime?
 
   genrePostSamples GenrePostSample[]

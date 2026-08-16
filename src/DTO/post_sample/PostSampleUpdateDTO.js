@@ -7,6 +7,7 @@ function PostSampleUpdateDTO(req){
         countryid : req.body.countryid ? req.body.countryid : null,
         genreid : req.body.genreid ? req.body.genreid : null,
         img : req.body.img ? req.body.img : null,
+        film : req.body.film ? req.body.film : null,
     }
 }
 

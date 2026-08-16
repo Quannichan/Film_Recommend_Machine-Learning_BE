@@ -1,12 +1,15 @@
 const express = require("express");
 const image = require("./image")
+const video = require("./video")
 const Router = express.Router()
 const infoController = require("../../controller/infoController");
 const postSampleController = require("../../controller/postSampleController");
 const countryController = require("../../controller/countryController");
 const genreController = require("../../controller/genreController");
 
-Router.use("/images", image)
+Router.use("/images", image);
+
+Router.use("/videos", video);
 
 Router.post("/postSamplePubl", new postSampleController().Service_public);
 

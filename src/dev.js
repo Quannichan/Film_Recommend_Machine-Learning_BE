@@ -6,38 +6,17 @@ const server = http.createServer(app);
 const port = process.env.PORT
 const cors = require("cors");
 const {prisma} = require("./config/connectSql")
-// const {testConnection} = require("./config/connectSql");
-const vf = require("./tools/VectorFilms");
-// testConnection();
+const path = require('path');
+const rcmt = require("./tools/RecommendTools");
 
-// const websocket = require("ws")
-// const chat_socket = require("../chat/chat_socket")
-// const wss = new websocket.Server({server: server, path:'/fammes/api/sk'})
-// const bodyParser = require('body-parser');
-
-// wss.on("connection", new chat_socket().connect)
 app.set('trust proxy', true);
-app.use(express.json({ limit: '300mb' }));
-app.use(express.urlencoded({limit: '300mb', extended: true }));
-// app.use(requestIp.mw());
-
-// app.use(express.json({ limit: '50mb' }));
-// app.use(express.urlencoded({ limit: '50mb', extended: true }));
-
-// app.use(cors()); 
-// app.options('*', cors({
-//     origin: `https://www.tro24h.com`,
-//     methods: ['GET', 'POST', 'PUT', 'DELETE', "OPTIONS"],
-//     allowedHeaders: ['Origin', 'Content-Type', 'Accept', 'Tokenizer', 'Authorization'],
-//     credentials: true
-// }));
+app.use(express.json({ limit: '999999mb' }));
+app.use(express.urlencoded({limit: '999999mb', extended: true }));
 
 app.use(cors({
-    // origin: [`http://localhost:5173`, `http://localhost:5174`, 'https://2bdb2c879dff.ngrok-free.app'],
     origin: [
     "http://localhost:5173",
-    // "http://localhost:5174",
-    "https://3522-14-236-18-82.ngrok-free.app"
+    "http://100.65.234.124:5173"
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', "OPTIONS"],
     allowedHeaders: ['Origin', 'Content-Type', 'Accept', 'Tokenizer', 'Authorization'],
@@ -55,5 +34,10 @@ server.listen(port , ()=>{
     console.log(`App running on port ${port}`);
 })
 
+// var img_path = path.join(__dirname, "..", "images", "_films_4217.jpg");
+// eColPoster.ExtractColor(img_path)
+// .then((extract)=>{
+//     console.log(extract);
+// })
 
-vf.init()
+rcmt.init();
